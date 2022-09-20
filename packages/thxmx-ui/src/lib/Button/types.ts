@@ -9,6 +9,7 @@ export type BaseButtonProps = {
     id?: string;
     disabled?: boolean;
     type?: ButtonHTMLAttributes<HTMLButtonElement>['type'];
+    htmlFor?: string;
 };
 
 export type ButtonRefsByTag = {
@@ -32,6 +33,4 @@ export type BaseButtonPropsWithAs<As extends TagsByButton> = BaseButtonProps & {
     href?: string;
     target?: string;
     rel?: string;
-    htmlFor?: string;
-    className?: string;
 } & ButtonPropsByTag[As];
