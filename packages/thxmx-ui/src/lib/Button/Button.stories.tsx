@@ -12,6 +12,7 @@ export default {
         full: { description: 'Full width for the button', control: { type: 'radio', options: [true, false] } },
         size: { description: 'Size of the button', control: { type: 'select' }, options: ['sm', 'm', 'lg'] },
         disabled: {
+            description: 'Disabled for the button',
             control: { type: 'radio', options: [true, false] },
         },
         label: {
