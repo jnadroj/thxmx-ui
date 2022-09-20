@@ -1,12 +1,11 @@
 import { forwardRef, PropsWithChildren } from 'react';
 import { BaseButtonPropsWithAs, ButtonColor, ButtonRefsByTag, TagsByButton } from './types';
-import { TYPE_BUTTON_SIZES } from './classes';
 import { ContainerButton, ContainerLinkButton } from './Button.styles';
 
 type PrimaryButtonProps<T extends TagsByButton = 'button'> = {
     label: string;
     full?: boolean;
-    size?: keyof TYPE_BUTTON_SIZES;
+    size?: 'sm' | 'm' | 'lg';
     loading?: boolean;
     color?: ButtonColor;
 } & BaseButtonPropsWithAs<T>;
@@ -33,6 +32,7 @@ const Button = <T extends TagsByButton = 'button'>(
 
         return (
             <ContainerLinkButton
+                size={size}
                 variant={color}
                 ref={ref as ButtonRefsByTag['a']}
                 href={href}

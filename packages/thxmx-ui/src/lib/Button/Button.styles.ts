@@ -31,6 +31,7 @@ export const ContainerButton = styled.button<ContainerButtonType>(
 export const ContainerLinkButton = styled.a<ContainerButtonType>(({ variant = 'primary', size = 'm' }) => ({
     color: colors[variant],
     fontWeight: 'bold',
+    fontSize: THXMX_FONT_SIZES[size],
     textDecoration: 'none',
     '&:hover': {
         color: colors[`${variant}-darker`],
