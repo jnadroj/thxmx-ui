@@ -1,0 +1,1 @@
+{"version":3,"file":"addDecorator.5ad90d1b.js","sources":["../../../../node_modules/@storybook/addon-actions/dist/esm/preset/addDecorator.js"],"sourcesContent":["import { withActions } from '../index';\nexport var decorators = [withActions];"],"names":["decorators","withActions"],"mappings":"qEACU,IAACA,EAAa,CAACC,CAAW"}
