@@ -8,12 +8,12 @@ export default {
         controls: { expanded: true },
     },
     argTypes: {
-        disabled: {
-            control: { type: 'radio', options: [true, false] },
-        },
         loading: { description: 'State of loading for the button', control: { type: 'radio', options: [true, false] } },
         full: { description: 'Full width for the button', control: { type: 'radio', options: [true, false] } },
         size: { description: 'Size of the button', control: { type: 'select' }, options: ['sm', 'm', 'lg'] },
+        disabled: {
+            control: { type: 'radio', options: [true, false] },
+        },
         label: {
             defaultValue: '',
             description: 'Text to display in the button',
@@ -37,7 +37,19 @@ export default {
     },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args) => (
+    <div
+        style={{
+            display: 'flex',
+            width: '100%',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '150px',
+        }}
+    >
+        <Button {...args} />
+    </div>
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
