@@ -2,7 +2,7 @@ export const colors = {
     primary: '#082ebc',
     error: '#ff4926',
     secondary: '#ad71e5',
-    'primary-lighter': '#1c42d0',
+    'primary-lighter': '#264cda',
     'primary-darker': '#00109e',
     'error-lighter': '#ff5d3a',
     'error-darker': '#eb3512',
