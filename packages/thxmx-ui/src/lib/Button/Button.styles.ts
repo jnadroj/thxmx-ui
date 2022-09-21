@@ -25,12 +25,16 @@ export const ContainerButton = styled.button<ContainerButtonType>(
         '&:hover': {
             background: disabled ? colors[`${variant}-lighter`] : colors[`${variant}-darker`],
         },
+        '&:focus': {
+            outlineStyle: 'none',
+        },
     })
 );
 
 export const ContainerLinkButton = styled.a<ContainerButtonType>(({ variant = 'primary', size = 'm' }) => ({
     color: colors[variant],
     fontWeight: 'bold',
+    cursor: 'pointer',
     fontSize: THXMX_FONT_SIZES[size],
     textDecoration: 'none',
     '&:hover': {
