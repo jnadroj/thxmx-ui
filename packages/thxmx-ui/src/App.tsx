@@ -1,10 +1,11 @@
 import styled from 'styled-components';
-import { Button } from './lib';
+import { Button, Input } from './lib';
 
 function App() {
     return (
         <Wrapper>
             <Button label="Hello World" color="primary" />
+            <Input label="Label" hint="Hint" />
         </Wrapper>
     );
 }
@@ -12,6 +13,8 @@ function App() {
 const Wrapper = styled.div`
     margin: 2rem;
     display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
 `;
 

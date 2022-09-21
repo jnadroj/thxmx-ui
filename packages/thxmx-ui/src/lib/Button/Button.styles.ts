@@ -13,7 +13,7 @@ export const ContainerButton = styled.button<ContainerButtonType>(
     ({ variant = 'primary', disabled, full = false, size = 'm' }) => ({
         background: disabled ? colors[`${variant}-lighter`] : colors[variant],
         color: 'white',
-        width: full ? '100%' : 'auto',
+        width: full ? '100%' : 'fit-content',
         outline: 'none',
         fontWeight: 'bold',
         fontSize: THXMX_FONT_SIZES[size],

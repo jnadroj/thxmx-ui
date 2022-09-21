@@ -62,4 +62,5 @@ FloatInput.args = {
 export const NormalInput = Template.bind({});
 NormalInput.args = {
     hint: 'Placeholder',
+    label: 'Label',
 };
