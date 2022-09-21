@@ -9,10 +9,12 @@ function App() {
 
     return (
         <Wrapper>
-            <p>{value}</p>
-            <Input label="Label" hint="Hint" ref={inputRef} />
+            <h2>Input</h2>
+            <Input label="Label" hint="Hint" ref={inputRef} /> <Divisor />
+            <h2>Button</h2>
             <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} />
-            <hr />
+            <Divisor />
+            <h2>Tags</h2>
             <div style={{ display: 'flex' }}>
                 <Tag size="sm">prueba</Tag>
                 <Tag size="sm" variant="secondary">
@@ -32,6 +34,9 @@ const Wrapper = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: center;
+`;
+const Divisor = styled.div`
+    margin-bottom: 2rem;
 `;
 
 export default App;
