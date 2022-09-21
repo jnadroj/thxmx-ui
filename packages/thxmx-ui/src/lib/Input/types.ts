@@ -30,12 +30,28 @@ export const THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE: IThxmxSize = {
     lg: '46px',
 };
 
-interface InputBaseProps {
-    label: string;
+interface BaseInputProps<T extends HTMLInputElement> {
     disabled?: boolean;
+    hint?: string;
+    id?: string;
+    // maxLength?: number;
+    name?: string;
+    inputProps?: React.AllHTMLAttributes<T>;
+    type?: string;
+    value?: string | number;
+    onChange?: (e: React.ChangeEvent<T>) => void;
+    onFocus?: (e: React.FocusEvent<T>) => void;
+    onBlur?: (e: React.FocusEvent<T>) => void;
+    onKeyDown?: (e: React.KeyboardEvent<T>) => void;
 }
 
-export interface InputProps extends InputBaseProps {
+interface InputWithLabel extends BaseInputProps<HTMLInputElement> {
+    label: string;
+}
+
+export interface InputProps extends InputWithLabel {
     size?: 'sm' | 'm' | 'lg';
     full?: boolean;
+    float?: boolean;
+    hint?: string;
 }
