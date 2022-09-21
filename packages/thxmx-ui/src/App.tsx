@@ -1,11 +1,27 @@
+import { useRef, useState } from 'react';
 import styled from 'styled-components';
 import { Button, Input } from './lib';
+import Tag from './lib/Tag';
 
 function App() {
+    const inputRef = useRef<HTMLInputElement>(null);
+    const [value, setValue] = useState<string>('');
+
     return (
         <Wrapper>
-            <Button label="Hello World" color="primary" />
-            <Input label="Label" hint="Hint" />
+            <p>{value}</p>
+            <Input label="Label" hint="Hint" ref={inputRef} />
+            <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} />
+            <hr />
+            <div style={{ display: 'flex' }}>
+                <Tag size="sm">prueba</Tag>
+                <Tag size="sm" variant="secondary">
+                    prueba
+                </Tag>
+                <Tag size="sm" variant="error">
+                    prueba
+                </Tag>
+            </div>
         </Wrapper>
     );
 }
