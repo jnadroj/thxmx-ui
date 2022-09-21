@@ -5,7 +5,13 @@ import Tag from './lib/Tag';
 
 function App() {
     const inputRef = useRef<HTMLInputElement>(null);
+    const [tags, setTags] = useState<Array<number>>([1, 2, 3]);
     const [value, setValue] = useState<string>('');
+
+    const handleCloseTag = (tagClicked: number) => {
+        let filterTags = tags.filter((tag) => tag !== tagClicked);
+        setTags([...filterTags]);
+    };
 
     return (
         <Wrapper>
@@ -16,13 +22,14 @@ function App() {
             <Divisor />
             <h2>Tags</h2>
             <div style={{ display: 'flex' }}>
-                <Tag size="sm">prueba</Tag>
-                <Tag size="sm" variant="secondary">
-                    prueba
+                <Tag unremovable color="secondary">
+                    Unremovable
                 </Tag>
-                <Tag size="sm" variant="error">
-                    prueba
-                </Tag>
+                {tags.map((tag) => (
+                    <Tag key={tag} onClose={() => handleCloseTag(tag)}>
+                        Tag {tag}
+                    </Tag>
+                ))}
             </div>
         </Wrapper>
     );

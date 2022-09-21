@@ -1,10 +1,12 @@
 import { IThxmxSize } from '@/interfaces';
-import { IColor } from '@/constants';
+import React from 'react';
 
 export interface TagProps {
-    children: string;
+    children: React.ReactNode;
+    unremovable?: boolean;
     size?: keyof IThxmxSize;
-    variant?: 'primary' | 'secondary' | 'error';
+    color?: 'primary' | 'secondary' | 'error';
+    onClose?: (e: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const THXMX_TAG_PADDING_Y_SIZES: IThxmxSize = {
