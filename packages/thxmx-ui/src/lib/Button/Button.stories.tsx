@@ -43,28 +43,19 @@ const Template: ComponentStory<typeof Button> = (args) => (
         style={{
             display: 'flex',
             width: '100%',
+            flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             height: '150px',
         }}
     >
         <Button {...args} />
+        <br />
+        <Button {...args} disabled />
     </div>
 );
 
-export const Primary = Template.bind({});
-Primary.args = {
-    label: 'Click me!',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-    color: 'secondary',
-    label: 'Click me!',
-};
-
-export const Error = Template.bind({});
-Error.args = {
-    color: 'error',
+export const Default = Template.bind({});
+Default.args = {
     label: 'Click me!',
 };

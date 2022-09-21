@@ -17,3 +17,9 @@ export const THXMX_BORDER_RADIUS_SIZE: IThxmxSize = {
     m: '6px',
     lg: '8px',
 };
+
+export const THXMX_ICONS_SIZES: IThxmxSize = {
+    sm: '13',
+    m: '16',
+    lg: '19',
+};
