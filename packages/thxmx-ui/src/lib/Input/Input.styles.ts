@@ -29,7 +29,7 @@ export const FloatLabel = styled.label<FloatLabelProps>(({ size = 'm' }) => ({
     left: '10px',
     opacity: '0.6',
     position: 'absolute',
-    backgroundColor: 'inherit',
+    color: 'black',
     top: THXMX_FLOAT_LABEL_INPUT_TOP_SIZE[size],
     fontSize: THXMX_FLOAT_LABEL_INPUT_FONT_SIZES[size],
     padding: THXMX_FLOAT_LABEL_INPUT_PADDING_SIZES[size],
@@ -39,10 +39,10 @@ export const FloatLabel = styled.label<FloatLabelProps>(({ size = 'm' }) => ({
 export const FloatInput = styled.input<{ disabled?: boolean; inputSize: keyof IThxmxSize }>(
     ({ disabled, inputSize }) => ({
         outline: 0,
-        backgroundColor: disabled ? '#dfe6e9' : 'transparent',
+        backgroundColor: disabled ? '#dfe6e9' : 'white',
         width: '100%',
         border: `1px solid ${disabled ? '#ccc' : 'black'}`,
-        color: disabled ? '#636e72' : 'inherit',
+        color: disabled ? '#636e72' : 'black',
         borderRadius: '4px',
         height: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
         fontSize: THXMX_INPUT_FONT_SIZES[inputSize],
@@ -94,8 +94,8 @@ export const Input = styled.input<{ inputSize: SizeInputProps; disabled?: boolea
         borderRadius: '4px',
         border: `1px solid ${disabled ? '#ccc' : 'black'}`,
         outline: 0,
-        backgroundColor: disabled ? '#dfe6e9' : 'transparent',
-        color: disabled ? '#636e72' : 'inherit',
+        backgroundColor: disabled ? '#dfe6e9' : 'white',
+        color: disabled ? '#636e72' : 'black',
         padding: '0.5rem',
     })
 );
