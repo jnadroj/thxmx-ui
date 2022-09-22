@@ -25,9 +25,9 @@ export const THXMX_FLOAT_LABEL_INPUT_TOP_SIZE: IThxmxSize = {
 };
 
 export const THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE: IThxmxSize = {
-    sm: '30px',
-    m: '38px',
-    lg: '46px',
+    sm: '48px',
+    m: '56px',
+    lg: '64px',
 };
 
 interface BaseInputProps<T extends HTMLInputElement> {
