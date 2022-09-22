@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Button, Input } from './lib';
 import Tag from './lib/Tag';
 

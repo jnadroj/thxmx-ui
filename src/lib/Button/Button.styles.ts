@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { colors, THXMX_BORDER_RADIUS_SIZE, THXMX_FONT_SIZES, THXMX_PADDING_SIZES } from '../../constants';
 import { IThxmxSize } from '@/interfaces';
 

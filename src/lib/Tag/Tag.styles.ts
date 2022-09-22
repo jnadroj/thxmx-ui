@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from '@emotion/styled';
 
 import { IThxmxSize } from '@/interfaces';
 import { convertHexToRGBA } from '@/utils';
