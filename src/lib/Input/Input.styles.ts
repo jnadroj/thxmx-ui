@@ -1,5 +1,5 @@
 import { IThxmxSize } from '@/interfaces';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import {
     THXMX_FLOAT_LABEL_INPUT_FONT_SIZES,
     THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE,

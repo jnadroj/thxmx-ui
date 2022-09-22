@@ -1,6 +1,6 @@
 {
     "name": "thxmx-ui",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "private": false,
     "repository": {
         "type": "git",
@@ -34,7 +34,7 @@
     "peerDependencies": {
         "react": "16.8.0 || 17.x",
         "react-dom": "16.8.0 || 17.x",
-        "styled-components": "5.0.0"
+        "@emotion/styled": "^11.10.4"
     },
     "files": [
         "dist"
@@ -50,6 +50,7 @@
     },
     "devDependencies": {
         "@babel/core": "7.17.8",
+        "@emotion/react": "^11.10.4",
         "@storybook/addon-a11y": "6.5.0-alpha.50",
         "@storybook/addon-actions": "6.5.0-alpha.50",
         "@storybook/addon-docs": "6.5.0-alpha.50",
@@ -60,7 +61,6 @@
         "@types/node": "17.0.23",
         "@types/react": "17.0.43",
         "@types/react-dom": "17.0.14",
-        "@types/styled-components": "5.1.24",
         "@vitejs/plugin-react": "1.2.0",
         "acorn-jsx": "5.3.2",
         "babel-loader": "8.2.4",

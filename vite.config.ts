@@ -24,12 +24,12 @@ export default defineConfig({
             fileName: (format) => `thxmx-ui.${format}.js`,
         },
         rollupOptions: {
-            external: ['react', 'react-dom', 'styled-components'],
+            external: ['react', 'react-dom', '@emotion/styled'],
             output: {
                 globals: {
                     react: 'React',
                     'react-dom': 'ReactDOM',
-                    'styled-components': 'styled',
+                    '@emotion/styled': 'styled',
                 },
             },
         },
