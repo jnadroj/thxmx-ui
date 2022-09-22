@@ -44,7 +44,8 @@ export const FloatInput = styled.input<{ disabled?: boolean; inputSize: keyof IT
         border: `1px solid ${disabled ? '#ccc' : 'black'}`,
         color: disabled ? '#636e72' : 'black',
         borderRadius: '4px',
-        height: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
+        minHeight: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
+        boxSizing: 'border-box',
         fontSize: THXMX_INPUT_FONT_SIZES[inputSize],
         padding: '0.5rem',
         '&:placeholder-shown ~ label': {
@@ -89,9 +90,10 @@ export const Label = styled.label<{ size: SizeInputProps }>(({ size = 'm' }) => 
 export const Input = styled.input<{ inputSize: SizeInputProps; disabled?: boolean }>(
     ({ inputSize = 'm', disabled }) => ({
         width: '100%',
-        height: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
+        minHeight: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
         fontSize: THXMX_INPUT_FONT_SIZES[inputSize],
         borderRadius: '4px',
+        boxSizing: 'border-box',
         border: `1px solid ${disabled ? '#ccc' : 'black'}`,
         outline: 0,
         backgroundColor: disabled ? '#dfe6e9' : 'white',
