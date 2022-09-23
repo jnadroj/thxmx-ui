@@ -21,6 +21,7 @@ export const ContainerButton = styled.button<ContainerButtonType>(
         padding: THXMX_PADDING_SIZES[size],
         borderRadius: THXMX_BORDER_RADIUS_SIZE[size],
         cursor: disabled ? 'not-allowed' : 'pointer',
+        letterSpacing: '.3px',
         transition: 'all .3s ease-in-out',
         '&:hover': {
             background: disabled ? colors[`${variant}-lighter`] : colors[`${variant}-darker`],

@@ -7,9 +7,9 @@ export const THXMX_FONT_SIZES: IThxmxSize = {
 };
 
 export const THXMX_PADDING_SIZES: IThxmxSize = {
-    sm: '7px 10px',
-    m: '10px 13px',
-    lg: '13px 16px',
+    sm: '9px 30px',
+    m: '12px 30px',
+    lg: '15px 30px',
 };
 
 export const THXMX_BORDER_RADIUS_SIZE: IThxmxSize = {
