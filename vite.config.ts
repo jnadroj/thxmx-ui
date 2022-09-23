@@ -24,7 +24,7 @@ export default defineConfig({
             fileName: (format) => `thxmx-ui.${format}.js`,
         },
         rollupOptions: {
-            external: ['react', 'react-dom', '@emotion/styled'],
+            external: ['react', 'react-dom', '@emotion/styled', '@emotion/react', 'no-scroll', 'focus-trap-react'],
             output: {
                 globals: {
                     react: 'React',

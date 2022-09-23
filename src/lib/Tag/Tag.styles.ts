@@ -22,10 +22,10 @@ export const TagContainer = styled.span<{ size: keyof IThxmxSize; color: 'primar
         color: colors[`${color}-darker`],
         margin: THXMX_TAG_MARGIN_SIZES[size],
         borderRadius: '3px',
-        '& >:first-child': {
+        '& >:first-of-type': {
             marginRight: '3px',
         },
-        '& >:last-child': {
+        '& >:last-of-type': {
             cursor: 'pointer',
         },
     })
