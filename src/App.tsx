@@ -1,14 +1,13 @@
 import { useRef, useState } from 'react';
 import styled from '@emotion/styled';
-import { Button, Input, Modal } from './lib';
-import Tag from './lib/Tag';
-import { ModalContent } from './lib/Modal';
+import { Button, Input, ModalContent, Modal, Tag } from './lib';
 
 function App() {
     const inputRef = useRef<HTMLInputElement>(null);
     const [tags, setTags] = useState<Array<number>>([1, 2, 3]);
     const [value, setValue] = useState<string>('');
     const [openModal, setOpenModal] = useState<boolean>(false);
+    const [openModal2, setOpenModal2] = useState<boolean>(false);
 
     const handleCloseTag = (tagClicked: number) => {
         let filterTags = tags.filter((tag) => tag !== tagClicked);
@@ -16,6 +15,7 @@ function App() {
     };
 
     const toggleModal = () => setOpenModal(!openModal);
+    const toggleModal2 = () => setOpenModal2(!openModal2);
 
     return (
         <Wrapper>
@@ -37,13 +37,24 @@ function App() {
             </div>
             <Divisor />
             <h2>Modal</h2>
-            <Button onClick={toggleModal} label="Open modal" />
-            <Modal open={openModal} onClose={toggleModal}>
+            <Button onClick={toggleModal} label="Open modal sm" />
+            <Modal open={openModal} size="sm" onClose={toggleModal}>
                 <ModalContent
+                    size="sm"
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit."
                     title="Main title"
                     confirm={{ label: 'Confirm' }}
                     cancel={{ label: 'Cancel', onClick: toggleModal }}
+                />
+            </Modal>
+            <Divisor />
+            <Button onClick={toggleModal2} color="secondary" label="Open modal m" />
+            <Modal open={openModal2} onClose={toggleModal2}>
+                <ModalContent
+                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit."
+                    title="Main title"
+                    confirm={{ label: 'Confirm' }}
+                    cancel={{ label: 'Cancel', onClick: toggleModal2 }}
                 />
             </Modal>
         </Wrapper>

@@ -1,4 +1,4 @@
-import Button from '@/lib/Button';
+import { Button } from '@/lib/Button';
 import { ActionContainer, BodyContent, ContentContainer, HeaderContent } from './ModalContent.styles';
 import { ModalContentProps } from './types';
 

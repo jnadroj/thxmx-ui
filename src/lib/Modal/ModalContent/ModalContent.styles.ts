@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { ModalSize } from '../types';
 import { THXMX_MODAL_TITLE_FONT_SIZE, THXMX_MODAL_CONTENT_FONT_SIZE } from './types';
 
 export const ContentContainer = styled.div({
@@ -6,9 +7,7 @@ export const ContentContainer = styled.div({
     margin: '0 auto',
 });
 
-type SizeContent = 'sm' | 'm' | 'lg';
-
-export const HeaderContent = styled.h3<{ size: SizeContent }>(({ size }) => ({
+export const HeaderContent = styled.h3<{ size: ModalSize }>(({ size }) => ({
     fontWeight: 'bold',
     fontSize: THXMX_MODAL_TITLE_FONT_SIZE[size] - 12 + 'px',
     textAlign: 'center',
@@ -17,15 +16,15 @@ export const HeaderContent = styled.h3<{ size: SizeContent }>(({ size }) => ({
     '@media (min-width: 768px)': { fontSize: THXMX_MODAL_TITLE_FONT_SIZE[size] },
 }));
 
-export const BodyContent = styled.p<{ size: SizeContent }>(({ size }) => ({
-    fontSize: THXMX_MODAL_CONTENT_FONT_SIZE[size] - 2 + 'px',
+export const BodyContent = styled.p<{ size: ModalSize }>(({ size }) => ({
+    fontSize: THXMX_MODAL_CONTENT_FONT_SIZE[size] - 3 + 'px',
     textAlign: 'center',
     margin: 0,
     marginBottom: '30px',
     '@media (min-width: 768px)': { fontSize: THXMX_MODAL_CONTENT_FONT_SIZE[size] },
 }));
 
-export const ActionContainer = styled.div<{ size: SizeContent }>(({ size }) => ({
+export const ActionContainer = styled.div<{ size: ModalSize }>(({ size }) => ({
     width: '100%',
     justifyContent: 'center',
     display: 'flex',

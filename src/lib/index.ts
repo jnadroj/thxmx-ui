@@ -1,4 +1,4 @@
-export { default as Tag } from './Tag';
-export { default as Modal } from './Modal';
-export { default as Input } from './Input';
-export { default as Button } from './Button';
+export * from './Tag';
+export * from './Modal';
+export * from './Input';
+export * from './Button';
