@@ -48,9 +48,10 @@
         }
     },
     "devDependencies": {
-        "@emotion/styled": "^11.10.4",
         "@babel/core": "7.17.8",
+        "@emotion/css": "^11.10.0",
         "@emotion/react": "^11.10.4",
+        "@emotion/styled": "^11.10.4",
         "@storybook/addon-a11y": "6.5.0-alpha.50",
         "@storybook/addon-actions": "6.5.0-alpha.50",
         "@storybook/addon-docs": "6.5.0-alpha.50",

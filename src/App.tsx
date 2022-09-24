@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import styled from '@emotion/styled';
-import { Button, Input, ModalContent, Modal, Tag } from './lib';
+import { Button, Input, ModalContent, Modal, Tag, Loader } from './lib';
+import { colors } from './constants';
 
 function App() {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -19,6 +20,13 @@ function App() {
 
     return (
         <Wrapper>
+            <h2>Loaders</h2>
+            <div style={{ display: 'flex', gap: '50px' }}>
+                <Loader size={32} borderSize={4} color={colors['primary-darker']} />
+                <Loader type="rotate" size={32} borderSize={4} color={colors['primary-darker']} />
+                <Loader type="dots" size={32} borderSize={4} color={colors['primary-darker']} />
+            </div>
+            <Divisor />
             <h2>Input</h2>
             <Input label="Label" hint="Hint" ref={inputRef} /> <Divisor />
             <h2>Button</h2>
