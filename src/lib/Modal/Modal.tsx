@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import { useEffect, useRef } from 'react';
 import FocusLock from 'react-focus-lock';
 
-import { ModalProps } from './types';
-import { ContainerModalBackground, ContainerModal } from './Modal.styles';
+import { Close } from '@/icons';
+import { colors } from '@/constants';
 
-const Modal: React.FC<ModalProps> = ({ children, size = 'm', open, onClose }) => {
+import { ModalProps } from './types';
+import { ContainerModalBackground, ContainerModal, CloseButtonContainer } from './Modal.styles';
+
+const { 'gray-darker': grayDarker } = colors;
+
+const Modal: React.FC<ModalProps> = ({ children, size = 'm', open, onClose, closable = true }) => {
     const dialogContainer = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -29,19 +34,22 @@ const Modal: React.FC<ModalProps> = ({ children, size = 'm', open, onClose }) =>
     };
 
     useEffect(() => {
-        if (open) {
+        if (open && closable) {
             document.addEventListener('mousedown', clickedOutsideZone);
             document.addEventListener('touchstart', clickedOutsideZone);
         } else removeEvents();
 
         return () => removeEvents();
-    }, [onClose, open]);
+    }, [onClose, open, closable]);
 
     return ReactDOM.createPortal(
         <ContainerModalBackground open={open}>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                 <ContainerModal size={size} ref={dialogContainer}>
                     <FocusLock>{open && children}</FocusLock>
+                    <CloseButtonContainer onClick={onClose}>
+                        <Close color={grayDarker} />
+                    </CloseButtonContainer>
                 </ContainerModal>
             </div>
         </ContainerModalBackground>,

@@ -1,4 +1,7 @@
 export const colors = {
+    black: '#000000',
+    gray: '#b2bec3',
+    'gray-darker': '#636e72',
     primary: '#7666f1',
     error: '#e03a3b',
     secondary: '#f24d9d',
@@ -11,6 +14,9 @@ export const colors = {
 };
 
 export type IColor =
+    | 'black'
+    | 'gray'
+    | 'gray-darker'
     | 'primary'
     | 'error'
     | 'secondary'
