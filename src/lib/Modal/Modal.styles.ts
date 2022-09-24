@@ -25,6 +25,7 @@ const THXMX_UI_MODAL_PADDING_Y_SIZE = {
 };
 
 export const ContainerModal = styled.div<{ size: ModalSize }>(({ size }) => ({
+    position: 'relative',
     backgroundColor: 'white',
     padding: `${THXMX_UI_MODAL_PADDING_Y_SIZE[size]} 0px`,
     maxHeight: '90vh',
@@ -48,4 +49,11 @@ export const ContainerModal = styled.div<{ size: ModalSize }>(({ size }) => ({
         maxWidth: THXMX_UI_MODAL_WIDTH_SIZE[size][2],
         margin: '0 auto',
     },
+}));
+
+export const CloseButtonContainer = styled.div(() => ({
+    position: 'absolute',
+    cursor: 'pointer',
+    top: '15px',
+    right: '20px',
 }));
