@@ -12,7 +12,14 @@ export default {
     },
     argTypes: {
         size: {
+            description: 'Size of the modal component',
+            defaultValue: 'm',
             control: { type: 'select', options: ['sm', 'm'] },
+        },
+        closable: {
+            description: 'Indicates whether the modal will close when clicked out of the modal',
+            defaultValue: true,
+            control: { type: 'select', options: [true, false] },
         },
     },
 } as ComponentMeta<typeof Modal>;
@@ -33,7 +40,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
             }}
         >
             <Button onClick={toggleModal} label={`Open modal ${args.size}`} size={args.size} />
-            <Modal open={openModal} onClose={toggleModal}>
+            <Modal {...args} open={openModal} onClose={toggleModal}>
                 <ModalContent
                     size={args.size}
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit."
