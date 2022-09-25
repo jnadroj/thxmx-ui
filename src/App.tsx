@@ -30,9 +30,9 @@ function App() {
             <h2>Input</h2>
             <ContainerComponentInput>
                 <Input label="Float" float />
-                <Input label="With Error" float error errorText="Error text" />
+                <Input label="With Error" float errorText="Error text" />
                 <Input label="Label" hint="Hint" />
-                <Input label="With Error" hint="Hint" error errorText="Error text" />
+                <Input label="With Error" hint="Hint" errorText="Error text" />
                 <Divisor />
             </ContainerComponentInput>
             <h2>Button</h2>

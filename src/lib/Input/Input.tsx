@@ -39,7 +39,7 @@ const Input = (
                 {/* @ts-expect-error (TODO: No overload matches this call) */}
                 <FloatInput
                     ref={ref as Ref<HTMLInputElement>}
-                    error={error}
+                    error={error || (errorText && errorText.trim() ? true : false)}
                     disabled={disabled}
                     id={id}
                     name={name}
@@ -69,7 +69,7 @@ const Input = (
                 inputSize={size}
                 ref={ref as Ref<HTMLInputElement>}
                 disabled={disabled}
-                error={error}
+                error={error || (errorText && errorText.trim() ? true : false)}
                 // inputSize={size}
                 value={value}
                 type={type}
