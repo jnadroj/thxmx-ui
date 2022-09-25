@@ -27,8 +27,14 @@ export const ContainerButton = styled.button<ContainerButtonType>(
         letterSpacing: '.3px',
         transition: 'all .1s ease-in-out',
         '&:hover': {
-            background: disabled ? colors[`${variant}-lighter`] : outline ? 'none' : colors[`${variant}-darker`],
-            opacity: outline ? '.7' : 1,
+            background: disabled
+                ? outline
+                    ? 'none'
+                    : colors[`${variant}-lighter`]
+                : outline
+                ? 'none'
+                : colors[`${variant}-darker`],
+            opacity: outline ? (disabled ? 1 : '.7') : 1,
         },
         '&:focus': {
             outlineStyle: 'none',
