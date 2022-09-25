@@ -22,3 +22,8 @@ export const THXMX_MODAL_CONTENT_FONT_SIZE = {
     sm: 15,
     m: 21,
 };
+
+export const SIZE_MODAL_ACTION_CONTAINER = {
+    sm: '25px',
+    m: '50px',
+};

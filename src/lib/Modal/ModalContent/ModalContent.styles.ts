@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ModalSize } from '../types';
-import { THXMX_MODAL_TITLE_FONT_SIZE, THXMX_MODAL_CONTENT_FONT_SIZE } from './types';
+import { THXMX_MODAL_TITLE_FONT_SIZE, THXMX_MODAL_CONTENT_FONT_SIZE, SIZE_MODAL_ACTION_CONTAINER } from './types';
 
 export const ContentContainer = styled.div({
     width: '70%',
@@ -35,7 +35,7 @@ export const ActionContainer = styled.div<{ size: ModalSize }>(({ size }) => ({
     },
     '@media (min-width: 768px)': {
         '& >:nth-of-type(odd)': {
-            marginRight: '50px',
+            marginRight: SIZE_MODAL_ACTION_CONTAINER[size],
             marginBottom: 0,
         },
         flexDirection: 'row',

@@ -61,10 +61,10 @@ function App() {
             </div>
             <Divisor />
             <h2>Modal</h2>
-            <div style={{ display: 'flex', gap: 4 }}>
+            <ContainerComponent>
                 <Button onClick={toggleModal} label="Modal sm" />
                 <Button onClick={toggleModal2} color="secondary" label="Modal m" />
-            </div>
+            </ContainerComponent>
             <Modal open={openModal} size="sm" onClose={toggleModal}>
                 <ModalContent
                     size="sm"
