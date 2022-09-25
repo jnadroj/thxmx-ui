@@ -2,7 +2,7 @@ import { Ref, HTMLAttributes, ButtonHTMLAttributes, MouseEventHandler } from 're
 
 export type TagsByButton = 'button' | 'a';
 
-export type ButtonColor = 'primary' | 'secondary' | 'error';
+export type ButtonColor = 'primary' | 'secondary' | 'error' | 'dismiss';
 
 export type BaseButtonProps = {
     className?: string;
@@ -28,7 +28,7 @@ export type ButtonPropsByTag = {
     };
 };
 
-export type BaseButtonPropsWithAs<As extends TagsByButton> = BaseButtonProps & {
+export type ButtonPropsWithAs<As extends TagsByButton> = BaseButtonProps & {
     as?: As;
     href?: string;
     target?: string;

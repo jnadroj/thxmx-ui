@@ -9,7 +9,15 @@ const ModalContent: React.FC<ModalContentProps> = ({ title, size = 'm', content,
             <BodyContent size={size}>{content}</BodyContent>
             <ActionContainer size={size}>
                 {confirm && <Button label={confirm?.label || 'Confirm'} onClick={confirm.onClick} size={size} />}
-                {cancel && <Button label={cancel?.label || 'Cancel'} onClick={cancel.onClick} size={size} />}
+                {cancel && (
+                    <Button
+                        label={cancel?.label || 'Cancel'}
+                        onClick={cancel.onClick}
+                        outline
+                        size={size}
+                        color="dismiss"
+                    />
+                )}
             </ActionContainer>
         </ContentContainer>
     );

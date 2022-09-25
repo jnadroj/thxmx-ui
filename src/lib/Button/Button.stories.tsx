@@ -15,6 +15,10 @@ export default {
             description: 'Disabled for the button',
             control: { type: 'radio', options: [true, false] },
         },
+        outline: {
+            description: 'Outline for the button',
+            control: { type: 'radio', options: [true, false] },
+        },
         label: {
             defaultValue: '',
             description: 'Text to display in the button',
