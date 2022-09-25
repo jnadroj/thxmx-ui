@@ -8,11 +8,15 @@ export default {
         controls: { expanded: true },
     },
     argTypes: {
-        full: { description: 'Full width for the input', control: { type: 'radio', options: [true, false] } },
+        full: {
+            defualtValue: false,
+            description: 'Full width for the input',
+            control: { type: 'boolean', options: [true, false] },
+        },
         size: { description: 'Size of the input', control: { type: 'select' }, options: ['sm', 'm', 'lg'] },
         disabled: {
             description: 'Disabled for the input',
-            control: { type: 'radio', options: [true, false] },
+            control: { type: 'boolean', options: [true, false] },
         },
         label: {
             defaultValue: '',
@@ -24,6 +28,8 @@ export default {
             description: 'Text to display in the placeholder when the input is normal',
             control: { type: 'text' },
         },
+        error: { options: [true, false], type: 'boolean' },
+        errorText: { defaultValue: '', description: 'Text to display in the error', control: { type: 'text' } },
         id: {
             defaultValue: '',
             description: 'Id for the input and label',
@@ -32,7 +38,7 @@ export default {
         float: {
             description: 'Type label of the input',
             defaultValue: false,
-            control: { type: 'radio', options: [true, false] },
+            control: { type: 'boolean', options: [true, false] },
         },
     },
 } as ComponentMeta<typeof Input>;
@@ -57,10 +63,18 @@ export const FloatInput = Template.bind({});
 FloatInput.args = {
     float: true,
     label: 'Label',
+    full: false,
+    errorText: '',
+    error: false,
+    disabled: false,
 };
 
 export const NormalInput = Template.bind({});
 NormalInput.args = {
     hint: 'Placeholder',
     label: 'Label',
+    full: false,
+    errorText: '',
+    error: false,
+    disabled: false,
 };
