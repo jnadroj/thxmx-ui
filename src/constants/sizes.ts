@@ -1,15 +1,15 @@
 import { IThxmxSize } from '@/interfaces';
 
 export const THXMX_FONT_SIZES: IThxmxSize = {
-    sm: '14px',
-    m: '18px',
-    lg: '22px',
+    sm: '12px',
+    m: '15px',
+    lg: '18px',
 };
 
-export const THXMX_PADDING_SIZES: IThxmxSize = {
-    sm: '9px 30px',
-    m: '12px 30px',
-    lg: '15px 30px',
+export const THXMX_PADDING_SIZES = {
+    sm: 9,
+    m: 12,
+    lg: 15,
 };
 
 export const THXMX_BORDER_RADIUS_SIZE: IThxmxSize = {

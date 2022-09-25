@@ -1,5 +1,5 @@
 import { forwardRef, PropsWithChildren } from 'react';
-import { BaseButtonPropsWithAs, ButtonColor, ButtonRefsByTag, TagsByButton } from './types';
+import { ButtonPropsWithAs, ButtonColor, ButtonRefsByTag, TagsByButton } from './types';
 import { ContainerButton, ContainerLinkButton } from './Button.styles';
 
 type PrimaryButtonProps<T extends TagsByButton = 'button'> = {
@@ -8,7 +8,8 @@ type PrimaryButtonProps<T extends TagsByButton = 'button'> = {
     size?: 'sm' | 'm' | 'lg';
     loading?: boolean;
     color?: ButtonColor;
-} & BaseButtonPropsWithAs<T>;
+    outline?: boolean;
+} & ButtonPropsWithAs<T>;
 
 const Button = <T extends TagsByButton = 'button'>(
     {

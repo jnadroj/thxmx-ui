@@ -23,14 +23,30 @@ function App() {
             <h2>Loaders</h2>
             <div style={{ display: 'flex', gap: '50px' }}>
                 <Loader size={32} borderSize={4} color={colors['primary-darker']} />
-                <Loader type="rotate" size={32} borderSize={4} color={colors['primary-darker']} />
+                <Loader type="rotate" size={32} borderSize={4} color={colors.secondary} />
                 <Loader type="dots" size={32} borderSize={4} color={colors['primary-darker']} />
             </div>
             <Divisor />
             <h2>Input</h2>
-            <Input label="Label" hint="Hint" ref={inputRef} /> <Divisor />
+            <ContainerComponent>
+                <Input label="Label" hint="Hint" ref={inputRef} float />
+                <Input label="Label" hint="Hint" ref={inputRef} /> <Divisor />
+            </ContainerComponent>
             <h2>Button</h2>
-            <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} />
+            <ContainerComponent style={{ alignItems: 'center' }}>
+                <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} />
+                <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} outline />
+                <Button
+                    label="Link to github"
+                    href="https://github.com/jnadroj/thxmx-ui.git"
+                    target="blank"
+                    rel="noreferrer"
+                    color="primary"
+                    onClick={() => setValue(inputRef.current?.value || '')}
+                    as="a"
+                />
+            </ContainerComponent>
+
             <Divisor />
             <h2>Tags</h2>
             <div style={{ display: 'flex' }}>
@@ -45,7 +61,10 @@ function App() {
             </div>
             <Divisor />
             <h2>Modal</h2>
-            <Button onClick={toggleModal} label="Open modal sm" />
+            <div style={{ display: 'flex', gap: 4 }}>
+                <Button onClick={toggleModal} label="Modal sm" />
+                <Button onClick={toggleModal2} color="secondary" label="Modal m" />
+            </div>
             <Modal open={openModal} size="sm" onClose={toggleModal}>
                 <ModalContent
                     size="sm"
@@ -56,7 +75,6 @@ function App() {
                 />
             </Modal>
             <Divisor />
-            <Button onClick={toggleModal2} color="secondary" label="Open modal m" />
             <Modal open={openModal2} onClose={toggleModal2}>
                 <ModalContent
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit."
@@ -78,6 +96,15 @@ const Wrapper = styled.div`
 `;
 const Divisor = styled.div`
     margin-bottom: 2rem;
+`;
+
+const ContainerComponent = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    & > *:not(:last-child) {
+        margin-right: 25px;
+    }
 `;
 
 export default App;
