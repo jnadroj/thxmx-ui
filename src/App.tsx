@@ -28,10 +28,13 @@ function App() {
             </div>
             <Divisor />
             <h2>Input</h2>
-            <ContainerComponent>
-                <Input label="Label" hint="Hint" ref={inputRef} float />
-                <Input label="Label" hint="Hint" ref={inputRef} /> <Divisor />
-            </ContainerComponent>
+            <ContainerComponentInput>
+                <Input label="Float" float />
+                <Input label="With Error" float error errorText="Error text" />
+                <Input label="Label" hint="Hint" />
+                <Input label="With Error" hint="Hint" error errorText="Error text" />
+                <Divisor />
+            </ContainerComponentInput>
             <h2>Button</h2>
             <ContainerComponent style={{ alignItems: 'center' }}>
                 <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} />
@@ -102,6 +105,14 @@ const ContainerComponent = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    & > *:not(:last-child) {
+        margin-right: 25px;
+    }
+`;
+
+const ContainerComponentInput = styled.div`
+    display: flex;
+    flex-direction: column;
     & > *:not(:last-child) {
         margin-right: 25px;
     }

@@ -1,7 +1,15 @@
 import { forwardRef, Ref } from 'react';
 
 import { InputProps } from './types';
-import { FloatInput, FloatLabel, FloatContainer, InputContainer, Label, Input as NormalInput } from './Input.styles';
+import {
+    FloatInput,
+    FloatLabel,
+    FloatContainer,
+    InputContainer,
+    Label,
+    Input as NormalInput,
+    ErrorMessage,
+} from './Input.styles';
 
 const Input = (
     {
@@ -9,8 +17,10 @@ const Input = (
         size = 'm',
         full = false,
         disabled = false,
+        error = false,
         float = false,
         hint = '',
+        errorText = '',
         name,
         type,
         id,
@@ -29,6 +39,7 @@ const Input = (
                 {/* @ts-expect-error (TODO: No overload matches this call) */}
                 <FloatInput
                     ref={ref as Ref<HTMLInputElement>}
+                    error={error}
                     disabled={disabled}
                     id={id}
                     name={name}
@@ -43,6 +54,7 @@ const Input = (
                     {...inputProps}
                 />
                 <FloatLabel size={size}>{label.substring(0, 20)}</FloatLabel>
+                {errorText && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
             </FloatContainer>
         );
     }
@@ -57,6 +69,7 @@ const Input = (
                 inputSize={size}
                 ref={ref as Ref<HTMLInputElement>}
                 disabled={disabled}
+                error={error}
                 // inputSize={size}
                 value={value}
                 type={type}
@@ -68,6 +81,7 @@ const Input = (
                 onBlur={onBlur}
                 {...inputProps}
             />
+            {errorText && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
         </InputContainer>
     );
 };
