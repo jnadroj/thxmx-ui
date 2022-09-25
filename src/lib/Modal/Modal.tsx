@@ -9,7 +9,7 @@ import { colors } from '@/constants';
 import { ModalProps } from './types';
 import { ContainerModalBackground, ContainerModal, CloseButtonContainer } from './Modal.styles';
 
-const { 'gray-darker': grayDarker } = colors;
+const { 'dismiss-darker': dismissDarker } = colors;
 
 const Modal: React.FC<ModalProps> = ({ children, size = 'm', open, onClose, closable = true }) => {
     const dialogContainer = useRef<HTMLDivElement>(null);
@@ -48,7 +48,7 @@ const Modal: React.FC<ModalProps> = ({ children, size = 'm', open, onClose, clos
                 <ContainerModal size={size} ref={dialogContainer}>
                     <FocusLock>{open && children}</FocusLock>
                     <CloseButtonContainer onClick={onClose}>
-                        <Close color={grayDarker} />
+                        <Close color={dismissDarker} />
                     </CloseButtonContainer>
                 </ContainerModal>
             </div>
