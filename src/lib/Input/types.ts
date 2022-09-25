@@ -32,11 +32,13 @@ export const THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE: IThxmxSize = {
 
 interface BaseInputProps<T extends HTMLInputElement> {
     disabled?: boolean;
+    error?: boolean;
     hint?: string;
     id?: string;
     // maxLength?: number;
     name?: string;
     inputProps?: React.AllHTMLAttributes<T>;
+    errorText?: string;
     type?: string;
     value?: string | number;
     onChange?: (e: React.ChangeEvent<T>) => void;
