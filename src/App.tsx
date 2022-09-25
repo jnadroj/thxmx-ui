@@ -1,12 +1,76 @@
-import { useRef, useState } from 'react';
+import React, { ReactNodeArray, useState } from 'react';
 import styled from '@emotion/styled';
 import { Button, Input, ModalContent, Modal, Tag, Loader } from './lib';
 import { colors } from './constants';
+import { convertHexToRGBA } from './utils';
+
+const Formulary: React.FC<{ hideForm: () => void }> = ({ hideForm }) => {
+    const [values, setValues] = useState({
+        name: '',
+        lastName: '',
+        city: '',
+        email: '',
+    });
+
+    const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target);
+        if (!event.target.value.trim()) return;
+        setValues({ ...values, [event.target.name]: event.target.value });
+    };
+
+    return (
+        <WrapperFormulary>
+            <div>
+                <h1>Formulary</h1>
+                <div>
+                    <Input label="Name" hint="John" name="name" onChange={handleChangeInput} />
+                    <Input label="Last Name" hint="Doe" name="lastName" onChange={handleChangeInput} />
+                    <Input label="Email" hint="jdoe@email.com" name="email" onChange={handleChangeInput} />
+                    <Input label="City" hint="Florida" name="city" onChange={handleChangeInput} />
+                </div>
+                <div>
+                    <Button label="Hide Form" onClick={hideForm} outline color="dismiss" />
+                    <Button label="Send" />
+                </div>
+            </div>
+            <div
+                style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}
+            >
+                <p>Name: {values.name} </p>
+                <p>LastName: {values.lastName}</p>
+                <p>Email: {values.email}</p>
+                <p>City: {values.city}</p>
+            </div>
+        </WrapperFormulary>
+    );
+};
+
+const WrapperFormulary = styled.div({
+    backgroundColor: convertHexToRGBA(colors['secondary-lighter'], 0.3),
+    padding: 50,
+    borderRadius: 34,
+    width: '80%',
+    margin: '100px auto',
+    display: 'flex',
+    '& > div': {
+        width: '50%',
+    },
+    '& > div > div:first-of-type': {
+        display: 'flex',
+        flexWrap: 'wrap',
+    },
+    '& > div > div:first-of-type > *:not(:last-of-type)': {
+        marginRight: 25,
+    },
+    '& > div > div:last-of-type > *:not(:last-of-type)': {
+        marginRight: 10,
+        marginTop: 10,
+    },
+});
 
 function App() {
-    const inputRef = useRef<HTMLInputElement>(null);
     const [tags, setTags] = useState<Array<number>>([1, 2, 3]);
-    const [value, setValue] = useState<string>('');
+    const [showForm, setShowForm] = useState<boolean>(false);
     const [openModal, setOpenModal] = useState<boolean>(false);
     const [openModal2, setOpenModal2] = useState<boolean>(false);
 
@@ -18,8 +82,13 @@ function App() {
     const toggleModal = () => setOpenModal(!openModal);
     const toggleModal2 = () => setOpenModal2(!openModal2);
 
+    if (showForm) return <Formulary hideForm={() => setShowForm(false)} />;
+
     return (
         <Wrapper>
+            <Button label="Show Form" onClick={() => setShowForm(!showForm)} outline />
+            <Divisor />
+
             <h2>Loaders</h2>
             <div style={{ display: 'flex', gap: '50px' }}>
                 <Loader size={32} borderSize={4} color={colors['primary-darker']} />
@@ -28,21 +97,22 @@ function App() {
             </div>
             <Divisor />
             <h2>Input</h2>
-            <ContainerComponent>
-                <Input label="Label" hint="Hint" ref={inputRef} float />
-                <Input label="Label" hint="Hint" ref={inputRef} /> <Divisor />
-            </ContainerComponent>
+            <ContainerComponentInput>
+                <Input label="Float" float />
+                <Input label="With Error" float errorText="Error text" />
+                <Input label="Label" hint="Hint" />
+                <Input label="With Error" hint="Hint" errorText="Error text" />
+                <Divisor />
+            </ContainerComponentInput>
             <h2>Button</h2>
             <ContainerComponent style={{ alignItems: 'center' }}>
-                <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} />
-                <Button label="Print" color="primary" onClick={() => setValue(inputRef.current?.value || '')} outline />
+                <Button label="Print" color="primary" />
+                <Button label="Print" color="primary" outline />
                 <Button
                     label="Link to github"
                     href="https://github.com/jnadroj/thxmx-ui.git"
                     target="blank"
                     rel="noreferrer"
-                    color="primary"
-                    onClick={() => setValue(inputRef.current?.value || '')}
                     as="a"
                 />
             </ContainerComponent>
@@ -105,6 +175,12 @@ const ContainerComponent = styled.div`
     & > *:not(:last-child) {
         margin-right: 25px;
     }
+`;
+
+const ContainerComponentInput = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 `;
 
 export default App;

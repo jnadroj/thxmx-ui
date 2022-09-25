@@ -1,3 +1,4 @@
+import { colors } from '@/constants';
 import { IThxmxSize } from '@/interfaces';
 import styled from '@emotion/styled';
 import {
@@ -18,7 +19,10 @@ interface FloatContainerProps {
 export const FloatContainer = styled.div<FloatContainerProps>(({ size = 'm', full }) => ({
     position: 'relative',
     width: full ? '100%' : sizes[size],
-    margin: '17px 0',
+    display: 'flex',
+    flexDirection: 'column',
+    margin: 0,
+    marginBottom: '17px',
 }));
 
 interface FloatLabelProps {
@@ -36,12 +40,12 @@ export const FloatLabel = styled.label<FloatLabelProps>(({ size = 'm' }) => ({
     fontWeight: 'bold',
 }));
 
-export const FloatInput = styled.input<{ disabled?: boolean; inputSize: keyof IThxmxSize }>(
-    ({ disabled, inputSize }) => ({
+export const FloatInput = styled.input<{ disabled?: boolean; inputSize: keyof IThxmxSize; error?: boolean }>(
+    ({ disabled, inputSize, error }) => ({
         outline: 0,
         backgroundColor: disabled ? '#dfe6e9' : 'white',
         width: '100%',
-        border: `1px solid ${disabled ? '#ccc' : 'black'}`,
+        border: `1px solid ${disabled ? '#ccc' : error ? colors.error : 'black'}`,
         color: disabled ? '#636e72' : 'black',
         borderRadius: '4px',
         minHeight: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
@@ -73,10 +77,12 @@ const sizes: Record<SizeInputProps, string> = {
 };
 
 export const InputContainer = styled.div<FloatContainerProps>(({ size = 'm', full }) => ({
+    position: 'relative',
     display: 'inline-flex',
     flexDirection: 'column',
     width: full ? '100%' : sizes[size],
-    margin: '17px 0',
+    margin: 0,
+    marginBottom: '17px',
     '> label': {
         marginBottom: '5px',
     },
@@ -87,17 +93,23 @@ export const Label = styled.label<{ size: SizeInputProps }>(({ size = 'm' }) => 
     fontWeight: 'bold',
 }));
 
-export const Input = styled.input<{ inputSize: SizeInputProps; disabled?: boolean }>(
-    ({ inputSize = 'm', disabled }) => ({
+export const Input = styled.input<{ inputSize: SizeInputProps; disabled?: boolean; error?: boolean }>(
+    ({ inputSize = 'm', disabled, error = false }) => ({
         width: '100%',
         minHeight: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
         fontSize: THXMX_INPUT_FONT_SIZES[inputSize],
         borderRadius: '4px',
         boxSizing: 'border-box',
-        border: `1px solid ${disabled ? '#ccc' : 'black'}`,
+        border: `1px solid ${disabled ? '#ccc' : error ? colors.error : 'black'}`,
         outline: 0,
         backgroundColor: disabled ? '#dfe6e9' : 'white',
         color: disabled ? '#636e72' : 'black',
         padding: '0.5rem',
     })
 );
+
+export const ErrorMessage = styled.span({
+    color: colors.error,
+    margin: 0,
+    marginTop: '7px',
+});
