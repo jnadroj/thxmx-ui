@@ -12,9 +12,9 @@ A modern library for reactJS components
 
 [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[npm-image]: https://img.shields.io/npm/v/thxmx-ui
+[npm-image]: https://img.shields.io/npm/v/thxmx-ui?style=for-the-badge
 [npm-url]: https://www.npmjs.com/package/thxmx-ui
-[download-image]: https://img.shields.io/npm/dm/thxmx-ui.svg?style=flat-square
+[download-image]: https://img.shields.io/npm/dm/thxmx-ui.svg?style=for-the-badge
 [download-url]: https://npmjs.org/package/thxmx-ui
 
 </div>
