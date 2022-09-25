@@ -54,7 +54,7 @@ const Input = (
                     {...inputProps}
                 />
                 <FloatLabel size={size}>{label.substring(0, 20)}</FloatLabel>
-                {errorText && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
+                {errorText && !disabled && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
             </FloatContainer>
         );
     }
@@ -81,7 +81,7 @@ const Input = (
                 onBlur={onBlur}
                 {...inputProps}
             />
-            {errorText && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
+            {errorText && !disabled && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
         </InputContainer>
     );
 };
