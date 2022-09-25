@@ -15,7 +15,7 @@ const ModalContent: React.FC<ModalContentProps> = ({ title, size = 'm', content,
                         onClick={cancel.onClick}
                         outline
                         size={size}
-                        color="dissmiss"
+                        color="dismiss"
                     />
                 )}
             </ActionContainer>
