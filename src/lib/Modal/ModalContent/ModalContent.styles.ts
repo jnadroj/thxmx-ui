@@ -5,6 +5,11 @@ import { THXMX_MODAL_TITLE_FONT_SIZE, THXMX_MODAL_CONTENT_FONT_SIZE, SIZE_MODAL_
 export const ContentContainer = styled.div({
     width: '70%',
     margin: '0 auto',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
 });
 
 export const HeaderContent = styled.h3<{ size: ModalSize }>(({ size }) => ({

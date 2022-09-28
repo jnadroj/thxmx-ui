@@ -39,7 +39,11 @@ const Template: ComponentStory<typeof Modal> = (args) => {
                 height: '350px',
             }}
         >
-            <Button onClick={toggleModal} label={`Open modal ${args.size}`} size={args.size} />
+            <Button
+                onClick={toggleModal}
+                label={`Open modal ${args.size}`}
+                size={args.size === 'full' ? 'lg' : args.size}
+            />
             <Modal {...args} open={openModal} onClose={toggleModal}>
                 <ModalContent
                     size={args.size}
@@ -63,4 +67,10 @@ export const m = Template.bind({});
 m.storyName = 'Medium';
 m.args = {
     size: 'm',
+};
+
+export const full = Template.bind({});
+full.storyName = 'Full';
+full.args = {
+    size: 'full',
 };
