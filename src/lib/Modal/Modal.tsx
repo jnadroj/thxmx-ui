@@ -15,11 +15,13 @@ const Modal: React.FC<ModalProps> = ({ children, size = 'm', open, onClose, clos
     const dialogContainer = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        noScroll.on();
+        if (open) {
+            noScroll.on();
+        }
         return () => {
             noScroll.off();
         };
-    }, []);
+    }, [open]);
 
     const clickedOutsideZone = (event: HTMLElementEventMap['mousedown'] | HTMLElementEventMap['touchstart']) => {
         const containerNoClosable = event.target as Node;
@@ -44,13 +46,24 @@ const Modal: React.FC<ModalProps> = ({ children, size = 'm', open, onClose, clos
 
     return ReactDOM.createPortal(
         <ContainerModalBackground open={open}>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-                <ContainerModal size={size} ref={dialogContainer}>
-                    <FocusLock>{open && children}</FocusLock>
-                    <CloseButtonContainer onClick={onClose}>
-                        <Close color={dismissDarker} />
-                    </CloseButtonContainer>
-                </ContainerModal>
+            <div
+                style={{
+                    display: 'flex',
+                    width: '100%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '100%',
+                }}
+            >
+                {open && (
+                    <ContainerModal size={size} ref={dialogContainer}>
+                        {size !== 'full' && <FocusLock>{open && children}</FocusLock>}
+                        {size === 'full' && open && children}
+                        <CloseButtonContainer onClick={onClose}>
+                            <Close color={dismissDarker} />
+                        </CloseButtonContainer>
+                    </ContainerModal>
+                )}
             </div>
         </ContainerModalBackground>,
         document.body

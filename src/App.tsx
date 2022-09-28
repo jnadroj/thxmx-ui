@@ -73,6 +73,7 @@ function App() {
     const [showForm, setShowForm] = useState<boolean>(false);
     const [openModal, setOpenModal] = useState<boolean>(false);
     const [openModal2, setOpenModal2] = useState<boolean>(false);
+    const [openModal3, setOpenModal3] = useState<boolean>(false);
 
     const handleCloseTag = (tagClicked: number) => {
         let filterTags = tags.filter((tag) => tag !== tagClicked);
@@ -81,6 +82,7 @@ function App() {
 
     const toggleModal = () => setOpenModal(!openModal);
     const toggleModal2 = () => setOpenModal2(!openModal2);
+    const toggleModal3 = () => setOpenModal3(!openModal3);
 
     if (showForm) return <Formulary hideForm={() => setShowForm(false)} />;
 
@@ -134,6 +136,7 @@ function App() {
             <ContainerComponent>
                 <Button onClick={toggleModal} label="Modal sm" />
                 <Button onClick={toggleModal2} color="secondary" label="Modal m" />
+                <Button onClick={toggleModal3} color="error" label="Modal full" />
             </ContainerComponent>
             <Modal open={openModal} size="sm" onClose={toggleModal}>
                 <ModalContent
@@ -144,13 +147,21 @@ function App() {
                     cancel={{ label: 'Cancel', onClick: toggleModal }}
                 />
             </Modal>
-            <Divisor />
             <Modal open={openModal2} onClose={toggleModal2}>
                 <ModalContent
                     content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit."
                     title="Main title"
                     confirm={{ label: 'Confirm' }}
                     cancel={{ label: 'Cancel', onClick: toggleModal2 }}
+                />
+            </Modal>
+            <Modal open={openModal3} size="full" onClose={toggleModal3}>
+                <ModalContent
+                    size="full"
+                    content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit."
+                    title="Main title"
+                    confirm={{ label: 'Confirm' }}
+                    cancel={{ label: 'Cancel', onClick: toggleModal3 }}
                 />
             </Modal>
         </Wrapper>

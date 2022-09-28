@@ -17,36 +17,39 @@ export const ContainerModalBackground = styled.div<{ open?: boolean }>(({ open }
 const THXMX_UI_MODAL_WIDTH_SIZE = {
     sm: ['76.6%', '66.6%', '50%'],
     m: ['96.6%', '76.6%', '56.6%'],
+    full: ['100%', '100%', '100%'],
 };
 
 const THXMX_UI_MODAL_PADDING_Y_SIZE = {
     sm: '48px',
     m: '56px',
+    full: '68px',
 };
 
 export const ContainerModal = styled.div<{ size: ModalSize }>(({ size }) => ({
     position: 'relative',
     backgroundColor: 'white',
     padding: `${THXMX_UI_MODAL_PADDING_Y_SIZE[size]} 0px`,
-    maxHeight: '90vh',
-    height: 'auto',
-    width: '90%',
-    maxWidth: '90%',
-    borderRadius: '10px',
+    maxHeight: size === 'full' ? '100vh' : '90vh',
+    height: size === 'full' ? '100vh' : 'auto',
+    width: size === 'full' ? '100vh' : '90%',
+    maxWidth: size === 'full' ? '100vh' : '90%',
+    boxSizing: 'border-box',
+    borderRadius: size === 'full' ? 'none' : '10px',
     margin: '0 auto',
     '@media (min-width: 768px)': {
-        width: `calc(${THXMX_UI_MODAL_WIDTH_SIZE[size][0]} - 64px)`,
-        maxWidth: THXMX_UI_MODAL_WIDTH_SIZE[size][0],
+        width: size === 'full' ? '100%' : `calc(${THXMX_UI_MODAL_WIDTH_SIZE[size][0]} - 64px)`,
+        maxWidth: size === 'full' ? '100%' : THXMX_UI_MODAL_WIDTH_SIZE[size][0],
         margin: '0 auto',
     },
     '@media (min-width: 1024px)': {
-        width: `calc(${THXMX_UI_MODAL_WIDTH_SIZE[size][1]} - 184px)`,
-        maxWidth: THXMX_UI_MODAL_WIDTH_SIZE[size][1],
+        width: size === 'full' ? '100%' : `calc(${THXMX_UI_MODAL_WIDTH_SIZE[size][1]} - 184px)`,
+        maxWidth: size === 'full' ? '100%' : THXMX_UI_MODAL_WIDTH_SIZE[size][1],
         margin: '0 auto',
     },
     '@media (min-width: 1366px)': {
-        width: `calc(${THXMX_UI_MODAL_WIDTH_SIZE[size][2]} - 288px)`,
-        maxWidth: THXMX_UI_MODAL_WIDTH_SIZE[size][2],
+        width: size === 'full' ? '100%' : `calc(${THXMX_UI_MODAL_WIDTH_SIZE[size][2]} - 288px)`,
+        maxWidth: size === 'full' ? '100%' : THXMX_UI_MODAL_WIDTH_SIZE[size][2],
         margin: '0 auto',
     },
 }));

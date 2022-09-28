@@ -8,13 +8,19 @@ const ModalContent: React.FC<ModalContentProps> = ({ title, size = 'm', content,
             <HeaderContent size={size}>{title}</HeaderContent>
             <BodyContent size={size}>{content}</BodyContent>
             <ActionContainer size={size}>
-                {confirm && <Button label={confirm?.label || 'Confirm'} onClick={confirm.onClick} size={size} />}
+                {confirm && (
+                    <Button
+                        label={confirm?.label || 'Confirm'}
+                        onClick={confirm.onClick}
+                        size={size === 'full' ? 'lg' : size}
+                    />
+                )}
                 {cancel && (
                     <Button
                         label={cancel?.label || 'Cancel'}
                         onClick={cancel.onClick}
                         outline
-                        size={size}
+                        size={size === 'full' ? 'lg' : size}
                         color="dismiss"
                     />
                 )}

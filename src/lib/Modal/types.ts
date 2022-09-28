@@ -6,4 +6,4 @@ export interface ModalProps {
     closable?: boolean;
 }
 
-export type ModalSize = 'sm' | 'm';
+export type ModalSize = 'sm' | 'm' | 'full';
