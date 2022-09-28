@@ -29,8 +29,9 @@ const THXMX_UI_MODAL_PADDING_Y_SIZE = {
 export const ContainerModal = styled.div<{ size: ModalSize }>(({ size }) => ({
     position: 'relative',
     backgroundColor: 'white',
-    padding: `${THXMX_UI_MODAL_PADDING_Y_SIZE[size]} 0px`,
+    padding: `${THXMX_UI_MODAL_PADDING_Y_SIZE[size]} ${size === 'full' ? THXMX_UI_MODAL_PADDING_Y_SIZE[size] : '0px'}`,
     maxHeight: size === 'full' ? '100vh' : '90vh',
+    overflow: 'auto',
     height: size === 'full' ? '100vh' : 'auto',
     width: size === 'full' ? '100vh' : '90%',
     maxWidth: size === 'full' ? '100vh' : '90%',
