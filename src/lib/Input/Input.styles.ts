@@ -43,7 +43,8 @@ export const FloatLabel = styled.label<FloatLabelProps>(({ size = 'm' }) => ({
 export const FloatInput = styled.input<{ disabled?: boolean; inputSize: keyof IThxmxSize; error?: boolean }>(
     ({ disabled, inputSize, error }) => ({
         outline: 0,
-        backgroundColor: disabled ? '#dfe6e9' : 'white',
+        // backgroundColor: disabled ? '#dfe6e9' : 'white',
+        opacity: disabled ? '0.4' : '1',
         width: '100%',
         border: `1px solid ${disabled ? '#ccc' : error ? colors.error : 'black'}`,
         color: disabled ? '#636e72' : 'black',
@@ -59,6 +60,7 @@ export const FloatInput = styled.input<{ disabled?: boolean; inputSize: keyof IT
         },
         '& ~ label': {
             backgroundColor: disabled ? '#dfe6e9' : '#ffffff',
+            // opacity: disabled ? '0.4' : '1',
         },
         '&:not(:placeholder-shown) ~ label, &:focus:not(:placeholder-shown) ~ label': {
             visibility: 'visible',
@@ -102,7 +104,8 @@ export const Input = styled.input<{ inputSize: SizeInputProps; disabled?: boolea
         boxSizing: 'border-box',
         border: `1px solid ${disabled ? '#ccc' : error ? colors.error : 'black'}`,
         outline: 0,
-        backgroundColor: disabled ? '#dfe6e9' : 'white',
+        // backgroundColor: disabled ? '#dfe6e9' : 'white',
+        opacity: disabled ? '0.4' : '1',
         color: disabled ? '#636e72' : 'black',
         padding: '0.5rem',
     })
