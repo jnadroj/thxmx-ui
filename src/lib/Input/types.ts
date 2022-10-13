@@ -1,11 +1,5 @@
 import { IThxmxSize } from '@/interfaces';
 
-export const THXMX_FLOAT_LABEL_INPUT_FONT_SIZES: IThxmxSize = {
-    sm: '14px',
-    m: '16px',
-    lg: '18px',
-};
-
 export const THXMX_INPUT_FONT_SIZES: IThxmxSize = {
     sm: '14px',
     m: '16px',
@@ -35,9 +29,7 @@ interface BaseInputProps<T extends HTMLInputElement> {
     error?: boolean;
     hint?: string;
     id?: string;
-    // maxLength?: number;
     name?: string;
-    inputProps?: React.AllHTMLAttributes<T>;
     errorText?: string;
     type?: string;
     value?: string | number;
@@ -51,8 +43,10 @@ interface InputWithLabel extends BaseInputProps<HTMLInputElement> {
     label: string;
 }
 
+export type LayoutSize = "sm" | "m" | "lg"
+
 export interface InputProps extends InputWithLabel {
-    size?: 'sm' | 'm' | 'lg';
+    size?: LayoutSize;
     full?: boolean;
     float?: boolean;
     hint?: string;

@@ -1,15 +1,12 @@
 import { forwardRef, Ref } from 'react';
-
 import { InputProps } from './types';
 import {
-    FloatInput,
-    FloatLabel,
-    FloatContainer,
     InputContainer,
     Label,
-    Input as NormalInput,
+    Input as StyledInput,
     ErrorMessage,
 } from './Input.styles';
+import { cx } from '@emotion/css';
 
 const Input = (
     {
@@ -20,68 +17,33 @@ const Input = (
         error = false,
         float = false,
         hint = '',
-        errorText = '',
+        errorText,
         name,
-        type,
         id,
-        value,
-        inputProps,
-        onBlur,
-        onKeyDown,
-        onFocus,
-        onChange,
+        ...props
     }: InputProps,
     ref: Ref<HTMLInputElement>
 ) => {
-    if (float) {
-        return (
-            <FloatContainer size={size} full={full}>
-                {/* @ts-expect-error (TODO: No overload matches this call) */}
-                <FloatInput
-                    ref={ref as Ref<HTMLInputElement>}
-                    error={error || (errorText && errorText.trim() ? true : false)}
-                    disabled={disabled}
-                    id={id}
-                    name={name}
-                    inputSize={size}
-                    value={value}
-                    placeholder={label}
-                    onKeyDown={onKeyDown}
-                    onChange={onChange}
-                    onFocus={onFocus}
-                    type={type}
-                    onBlur={onBlur}
-                    {...inputProps}
-                />
-                <FloatLabel size={size}>{label.substring(0, 20)}</FloatLabel>
-                {errorText && !disabled && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
-            </FloatContainer>
-        );
-    }
+    const hasError = error || !!errorText;
+    const hasErrorMessage = hasError && !disabled;
+    const placeholder = float ? label : hint;
 
     return (
         <InputContainer size={size} full={full}>
-            <Label htmlFor={id} size={size}>
+            {hasErrorMessage && <ErrorMessage>{errorText}</ErrorMessage>}
+            <StyledInput
+                ref={ref}
+                disabled={disabled}
+                id={id}
+                name={name}
+                inputSize={size}
+                placeholder={placeholder}
+                className={cx({disabled, error: hasError})}
+                {...props}
+            />
+            <Label htmlFor={id} size={size} className={cx({float})}>
                 {label}
             </Label>
-            {/* @ts-expect-error (TODO: No overload matches this call) */}
-            <NormalInput
-                inputSize={size}
-                ref={ref as Ref<HTMLInputElement>}
-                disabled={disabled}
-                error={error || (errorText && errorText.trim() ? true : false)}
-                value={value}
-                type={type}
-                name={name}
-                placeholder={hint}
-                id={id}
-                onChange={onChange}
-                onFocus={onFocus}
-                onKeyDown={onKeyDown}
-                onBlur={onBlur}
-                {...inputProps}
-            />
-            {errorText && !disabled && errorText.trim() && <ErrorMessage>{errorText}</ErrorMessage>}
         </InputContainer>
     );
 };
