@@ -2,9 +2,9 @@ import { colors } from '@/constants';
 import { IThxmxSize } from '@/interfaces';
 import styled from '@emotion/styled';
 import {
-    THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE,
-    THXMX_FLOAT_LABEL_INPUT_PADDING_SIZES,
-    THXMX_FLOAT_LABEL_INPUT_TOP_SIZE,
+    THXMX_LABEL_INPUT_HEIGHT_SIZE,
+    THXMX_LABEL_INPUT_PADDING_SIZES,
+    THXMX_LABEL_INPUT_TOP_SIZE,
     THXMX_INPUT_FONT_SIZES,
 } from './types';
 
@@ -17,19 +17,15 @@ interface InputContainerProps {
 
 export const Input = styled.input<{inputSize: SizeInputProps}>(
     ({ inputSize }) => ({
-        width: '100%',
-        minHeight: THXMX_FLOAT_LABEL_INPUT_HEIGHT_SIZE[inputSize],
-        fontSize: THXMX_INPUT_FONT_SIZES[inputSize],
-        borderRadius: '4px',
-        boxSizing: 'border-box',
-        border: `1px solid ${colors.black}`,
+        border: 0,
+        padding: 0,
         outline: 0,
-        color: colors.black,
-        padding: '0.5rem',
+        width: '100%',
+        minHeight: THXMX_LABEL_INPUT_HEIGHT_SIZE[inputSize],
+        fontSize: THXMX_INPUT_FONT_SIZES[inputSize],        
 
         '&:placeholder-shown ~ label.float': {
             visibility: 'hidden',
-            zIndex: -1,
             transition: '0.2s ease-in-out',
         },
 
@@ -37,27 +33,12 @@ export const Input = styled.input<{inputSize: SizeInputProps}>(
             backgroundColor: '#ffffff',
         },
 
-        '&.disabled ~ label.float': {
-            backgroundColor: '#dfe6e9',
-        },
-
         '&:not(:placeholder-shown) ~ label.float,&:focus:not(:placeholder-shown) ~ label.float': {
             visibility: 'visible',
-            zIndex: 1,
             opacity: 1,
             transform: 'translateY(-6px)',
             transition: '0.2s ease-in-out transform',
         },
-
-        '&.disabled': {
-            border: '1px solid #ccc',
-            opacity: '0.4',
-            color: '#636e72',
-        },
-
-        '&.error': {
-            border: `1px solid ${colors.error}`
-        }
     })
 );
 
@@ -68,11 +49,7 @@ const sizes: Record<SizeInputProps, string> = {
 };
 
 export const InputContainer = styled.div<InputContainerProps>(({ size = 'm', full }) => ({
-    position: 'relative',
     width: full ? '100%' : sizes[size],
-    display: 'flex',
-    flexDirection: 'column-reverse',
-    margin: 0,
     marginBottom: '17px',
 
     '> label': {
@@ -81,16 +58,18 @@ export const InputContainer = styled.div<InputContainerProps>(({ size = 'm', ful
 }));
 
 export const Label = styled.label<{ size: SizeInputProps }>(({ size = 'm' }) => ({
+    display: 'inline-block',
     fontSize: THXMX_INPUT_FONT_SIZES[size],
     fontWeight: 'bold',
-    
+    marginBottom: 5,
+
     '&.float': {
-        left: '10px',
-        opacity: '0.6',
         position: 'absolute',
+        left: '10px',
+        opacity: 0.6,
         color: 'black',
-        top: THXMX_FLOAT_LABEL_INPUT_TOP_SIZE[size],
-        padding: THXMX_FLOAT_LABEL_INPUT_PADDING_SIZES[size],
+        top: THXMX_LABEL_INPUT_TOP_SIZE[size],
+        padding: THXMX_LABEL_INPUT_PADDING_SIZES[size],
     }
 }));
 
@@ -99,3 +78,34 @@ export const ErrorMessage = styled.span({
     margin: 0,
     marginTop: '7px',
 });
+
+export const InputAdornment = styled('div')`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+`;
+
+
+export const InputWrapper = styled.div<{ size: SizeInputProps }>(({size}) => ({
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative',
+    padding: '0.5rem',
+    borderRadius: '4px',
+    border: `1px solid ${colors.black}`,
+
+    '&.disabled ~ label.float': {
+        backgroundColor: '#dfe6e9',
+    },
+
+    '&.disabled': {
+        border: '1px solid #ccc',
+        opacity: '0.4',
+        color: '#636e72',
+    },
+
+    '&.error': {
+        border: `1px solid ${colors.error}`
+    },
+}))

@@ -1,8 +1,10 @@
-import React, { ReactNodeArray, useState } from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import { Button, Input, ModalContent, Modal, Tag, Loader } from './lib';
 import { colors } from './constants';
 import { convertHexToRGBA } from './utils';
+import { Close, Search } from './icons';
+import { InputAdornment } from './lib/Input/Input.styles';
 
 const Formulary: React.FC<{ hideForm: () => void }> = ({ hideForm }) => {
     const [values, setValues] = useState({
@@ -74,6 +76,11 @@ function App() {
     const [openModal, setOpenModal] = useState<boolean>(false);
     const [openModal2, setOpenModal2] = useState<boolean>(false);
     const [openModal3, setOpenModal3] = useState<boolean>(false);
+    const [search, setSearch] = useState('');
+
+    const onClearSearch = () => setSearch('')
+
+    const onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value);
 
     const handleCloseTag = (tagClicked: number) => {
         let filterTags = tags.filter((tag) => tag !== tagClicked);
@@ -104,6 +111,14 @@ function App() {
                 <Input label="With Error" float errorText="Error text" />
                 <Input label="Label" hint="Hint" />
                 <Input label="With Error" hint="Hint" errorText="Error text" />
+                <Input 
+                    label="With Error"
+                    hint="Hint"
+                    value={search}
+                    onChange={onChangeSearch}
+                    renderStartIcon={() => <InputAdornment><Search color={colors.black}/></InputAdornment>}
+                    renderEndIcon={() => <InputAdornment onClick={onClearSearch}><Close color={colors.black}/></InputAdornment>}
+                />
                 <Divisor />
             </ContainerComponentInput>
             <h2>Button</h2>

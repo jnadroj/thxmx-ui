@@ -5,47 +5,48 @@ import {
     Label,
     Input as StyledInput,
     ErrorMessage,
+    InputWrapper,
 } from './Input.styles';
 import { cx } from '@emotion/css';
 
-const Input = (
+export default forwardRef(function Input(
     {
+        id,
+        hint,
         label,
+        errorText,
         size = 'm',
         full = false,
-        disabled = false,
         error = false,
         float = false,
-        hint = '',
-        errorText,
-        name,
-        id,
+        disabled = false,
+        renderEndIcon,
+        renderStartIcon,
         ...props
     }: InputProps,
     ref: Ref<HTMLInputElement>
-) => {
+) {
     const hasError = error || !!errorText;
     const hasErrorMessage = hasError && !disabled;
     const placeholder = float ? label : hint;
 
     return (
         <InputContainer size={size} full={full}>
+            {!float && (<Label size={size}>{label}</Label>)}
+            <InputWrapper size={size} className={cx({disabled, error: hasError})}>
+                {renderStartIcon && renderStartIcon()}
+                <StyledInput
+                    id={id}
+                    ref={ref}
+                    inputSize={size}
+                    disabled={disabled}
+                    placeholder={placeholder}
+                    {...props}
+                 />
+                 {renderEndIcon && renderEndIcon()}
+                {float && (<Label htmlFor={id} size={size} className='float'>{label}</Label>)}
+            </InputWrapper>
             {hasErrorMessage && <ErrorMessage>{errorText}</ErrorMessage>}
-            <StyledInput
-                ref={ref}
-                disabled={disabled}
-                id={id}
-                name={name}
-                inputSize={size}
-                placeholder={placeholder}
-                className={cx({disabled, error: hasError})}
-                {...props}
-            />
-            <Label htmlFor={id} size={size} className={cx({float})}>
-                {label}
-            </Label>
         </InputContainer>
     );
-};
-
-export default forwardRef(Input);
+})
