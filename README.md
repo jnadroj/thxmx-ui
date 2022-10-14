@@ -19,6 +19,12 @@ A modern library for reactJS components
 
 </div>
 
+## 📚 Homepage
+
+-   Visit [here](https://thxmx-ui.netlify.app/)
+
+![s2](<./public/assets/Screenshot%20(185).png>)
+
 ## ✨ Features
 
 -   📦 An uncommonly high quality set of React components.
@@ -51,10 +57,6 @@ const App: FC = () => (
 export default App;
 ```
 
-## 🔗 Links
-
--   [Home page](https://thxmx-ui.netlify.app/)
-
 ## ⌨️ Development
 
 Use Gitpod, a free online dev environment for GitHub.
@@ -72,4 +74,49 @@ $ npm run dev
 
 Open your browser and visit http://127.0.0.1:3000
 
+## Prerequisites 🛠️
+
+Before you begin, ensure you have met the following requirements:
+
+Make sure you have:
+
+-   Nodejs
+-   npm or yarn
+-   git
+
+## Let's Contribute 👍
+
+-   Step 1 - Fork this repository.
+-   Step 2 - Clone the repository to your local machine.
+-   Step 3 - Resolve the bugs, mentions provided in the Issues section of the repository. Also add a description of what changes you have done.
+-   Step 4 - Add the changes to your repository.
+-   Step 5 - Create a PULL Request. And that's all.
+
+## What you can contribute in this repo? 👊
+
+-   You can add your own competitive programming solutions.
+-   There are various topics like Functionality, Modal aspect of thxmx-ui etc. You can contribute in them
+-   You can contribute some Learning Resources in the READme.md File.
+-   You can modify previous solutions if you feel like your solution has better Time or Space complexity.
+
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+## For more info about contribution visit :
+
+<a href="https://github.com/jnadroj/thxmx-ui/blob/master/CONTRIBUTING.md">🔗 CONTRIBUTION.md</a>
+
+## Contributors 💡
+
+Thanks to the following people who have contributed to this project:
+
+@jnadroj 📖
+@Frey0-0 🐛
+@eriandev 🐛
+@krazykaushal 🐛
+@kartikjoshi267 🐛
+@Dorcastunmise 🐛
+
+## Keywords 🤌
+
+TypeScript javascript Library ReactJS Components Microsoft compiler language UI React-ui framework
+frontend Design library-ui
