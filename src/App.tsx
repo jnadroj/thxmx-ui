@@ -2,6 +2,9 @@ import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
 import { Button, Input, ModalContent, Modal, Tag, Loader, Rate } from './lib';
 import { colors } from './constants';
+import { convertHexToRGBA } from './utils';
+import { Close, Search } from './icons';
+import { InputAdornment } from './lib/Input/Input.styles';
 
 const textLorem =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit.';
@@ -11,6 +14,11 @@ function App() {
     const [openModal, setOpenModal] = useState<boolean>(false);
     const [openModal2, setOpenModal2] = useState<boolean>(false);
     const [openModal3, setOpenModal3] = useState<boolean>(false);
+    const [search, setSearch] = useState('');
+
+    const onClearSearch = () => setSearch('')
+
+    const onChangeSearch = (event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value);
 
     const handleCloseTag = (tagClicked: number) => {
         let filterTags = tags.filter((tag) => tag !== tagClicked);
@@ -45,6 +53,14 @@ function App() {
                 <ContainerComponentInput>
                     <Input label="Float" float />
                     <Input label="Label" hint="Hint" />
+                    <Input 
+                    label="With Icons"
+                    hint="Hint"
+                    value={search}
+                    onChange={onChangeSearch}
+                    renderStartIcon={() => <InputAdornment><Search color={colors.black}/></InputAdornment>}
+                    renderEndIcon={() => <InputAdornment onClick={onClearSearch}><Close color={colors.black}/></InputAdornment>}
+                />
                 </ContainerComponentInput>
             </div>
             <div>
