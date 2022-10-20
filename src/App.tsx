@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
-import { Button, Input, ModalContent, Modal, Tag, Loader } from './lib';
+import { Button, Input, ModalContent, Modal, Tag, Loader, Rate } from './lib';
 import { colors } from './constants';
 
 const textLorem =
@@ -81,6 +81,13 @@ function App() {
                     <Button onClick={toggleModal2} color="secondary" label="Modal m" />
                     <Button onClick={toggleModal3} color="error" label="Modal full" />
                 </ContainerComponent>
+            </div>
+
+            <div>
+                <h2>Rate</h2>
+                <div>
+                    <Rate count={5} defaultValue={3.5} style={{ fontSize: 40 }} allowHalf />
+                </div>
             </div>
             <Modal open={openModal} size="sm" onClose={toggleModal}>
                 <ModalContent {...modalProps} size="sm" cancel={{ label: 'Cancel', onClick: toggleModal }} />
