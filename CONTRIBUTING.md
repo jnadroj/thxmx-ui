@@ -1,6 +1,6 @@
 # How to contribute to this project
 
-1. Pick up an issue from the Issues section and ask for assigning issue to you. Wait for the issue to be assigned to you.
+1. Pick up an issue from the Issues section and ask a maintainer to assign the issue to you. Wait for the issue to be assigned to you.
 
 2. Fork this repository (Click the Fork button <img src="https://user-images.githubusercontent.com/96565730/195651627-e0250dc6-d6ac-4688-844a-2cf5e537affd.png" width="80"> in the top right of this page)
 
@@ -39,4 +39,4 @@
 
 9. Wait for your PR review and merge approval!
 
-10. **Star this repository** if like it.
+10. **Star this repository** if you like it.
