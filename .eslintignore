@@ -2,3 +2,4 @@ dist/
 node_modules/
 storybook-static/
 vite.config.ts
+commitlint.config.js
