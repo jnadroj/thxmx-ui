@@ -1,5 +1,5 @@
 export interface IThxmxSize {
-    sm: string;
-    m: string;
-    lg: string;
+  sm: string;
+  m: string;
+  lg: string;
 }
