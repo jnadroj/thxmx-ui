@@ -92,8 +92,5 @@
     "vite-plugin-dts": "1.0.3",
     "husky": "^8.0.0",
     "rc-rate": "^2.9.2"
-  },
-  "lint-staged" :  {
-    "*.(js|jsx|ts|tsx)": "npm run lint:fix"
   }
 }
