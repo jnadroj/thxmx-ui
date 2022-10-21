@@ -31,7 +31,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint .",
-    "lint:fix": "eslint --fix ."
+    "lint:fix": "eslint --fix .",
+    "prepare": "husky install"
   },
   "license": "UNLICENSED",
   "peerDependencies": {
@@ -52,6 +53,8 @@
   },
   "devDependencies": {
     "@babel/core": "7.17.8",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@emotion/css": "^11.10.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
@@ -81,16 +84,15 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
     "json": "11.0.0",
     "no-scroll": "^2.1.1",
     "prettier": "^2.7.1",
+    "rc-rate": "^2.9.2",
     "react-focus-lock": "^2.9.1",
     "storybook-builder-vite": "0.1.21",
     "typescript": "4.6.3",
     "vite": "2.8.6",
     "vite-plugin-dts": "1.0.3"
-  },
-  "dependencies": {
-    "rc-rate": "^2.9.2"
   }
 }
