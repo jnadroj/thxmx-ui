@@ -1,0 +1,8 @@
+newIssueWelcomeComment: >
+  Thanks for opening your first issue here! Be sure to follow the issue template!
+
+newPRWelcomeComment: >
+  Thanks for opening this pull request! Make sure you have assigned an issue to this respective PR
+
+firstPRMergeComment: >
+  Congrats on merging your first pull request! Thanks alot for your contribution.
