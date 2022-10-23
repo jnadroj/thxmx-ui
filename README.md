@@ -65,6 +65,20 @@ export default App;
 
 ## ⌨️ Development
 
+### Node version
+
+First of all let's use version 16 of node so we don't have compatibility problems, for this we can use [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) just run in the repository folder the command:
+
+```bash
+$ nvm use
+```
+
+This command will look for the .nvmrc file and will find the version with which the project was created.
+
+---
+
+### Development environment
+
 Use Gitpod, a free online dev environment for GitHub.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/jnadroj/thxmx-ui)
