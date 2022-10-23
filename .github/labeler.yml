@@ -1,0 +1,19 @@
+# Add 'test' label to any change to *.spec.js files within the source dir
+test:
+  - src/**/*.spec.ts
+  - src/**/*.test.ts
+  - src/**/*.spec.tsx
+  - src/**/*.test.tsx
+  - src/**/*.spec.js
+  - src/**/*.test.js
+  - src/**/*.spec.jsx
+  - src/**/*.test.jsx
+
+# add documentation to *.md files 
+documentation: 
+  - *.md
+
+github-config: 
+  - .github/**/*.yml
+
+
