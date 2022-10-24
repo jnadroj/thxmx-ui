@@ -11,7 +11,7 @@ export const ContainerModalBackground = styled.div<{ open?: boolean }>(
     left: 0,
     top: 0,
     overflow: 'auto',
-    zIndex: 199999,
+    zIndex: 1000,
     backgroundColor: 'rgba(0,0,0,0.4)',
   })
 );
