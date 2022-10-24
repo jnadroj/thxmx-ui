@@ -43,11 +43,19 @@ Default.args = {
       name: 'ana',
       age: 76,
     },
+    {
+      name: 'luis',
+      age: 30,
+    },
+    {
+      name: 'martha',
+      age: 20,
+    },
   ],
   customRender: (item) => {
     const person = item as { name: string; age: number };
     return (
-      <p>
+      <p key={person.name} style={{ margin: 0 }}>
         {person.name}, {person.age}
       </p>
     );

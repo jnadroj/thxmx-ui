@@ -12,6 +12,11 @@ import {
 } from './lib';
 import { colors } from './constants';
 
+interface User {
+  name: string;
+  age: number;
+}
+
 const textLorem =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit.';
 
@@ -87,13 +92,15 @@ function App() {
     []
   );
 
-  const listItems = [
+  const listItems: User[] = [
     { name: 'Alberto', age: 35 },
     { name: 'Ana', age: 37 },
+    { name: 'Mateo', age: 33 },
+    { name: 'Clara', age: 36 },
   ];
 
-  const listCustomRender = (item: typeof listItems[number]) => (
-    <p key={item.name}>
+  const listCustomRender = (item: User) => (
+    <p key={item.name} style={{ margin: 0 }}>
       <strong>{item.name}: </strong>
       <small>{item.age}</small>
     </p>
