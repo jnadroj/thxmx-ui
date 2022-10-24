@@ -1,7 +1,21 @@
 import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
-import { Button, Input, ModalContent, Modal, Tag, Loader, Rate } from './lib';
+import {
+  Button,
+  Input,
+  ModalContent,
+  Modal,
+  Tag,
+  Loader,
+  Rate,
+  List,
+} from './lib';
 import { colors } from './constants';
+
+interface User {
+  name: string;
+  age: number;
+}
 
 const textLorem =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tempor odio venenatis tortor sagittis, eget elementum diam ultrices. Morbi congue sit amet metus a suscipit.';
@@ -78,6 +92,20 @@ function App() {
     []
   );
 
+  const listItems: User[] = [
+    { name: 'Alberto', age: 35 },
+    { name: 'Ana', age: 37 },
+    { name: 'Mateo', age: 33 },
+    { name: 'Clara', age: 36 },
+  ];
+
+  const listCustomRender = (item: User) => (
+    <p key={item.name} style={{ margin: 0 }}>
+      <strong>{item.name}: </strong>
+      <small>{item.age}</small>
+    </p>
+  );
+
   return (
     <Wrapper>
       <div>
@@ -152,6 +180,14 @@ function App() {
           />
         </div>
       </div>
+
+      <div>
+        <h2>List</h2>
+        <div>
+          <List items={listItems} customRender={listCustomRender} />
+        </div>
+      </div>
+
       <Modal open={openModal} size="sm" onClose={toggleModal}>
         <ModalContent
           {...modalProps}
