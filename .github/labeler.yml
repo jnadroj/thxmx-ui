@@ -12,6 +12,7 @@ test:
 # add documentation to *.md files
 documentation:
   - '**.md'
+  - 'src/**/*.stories.tsx'
 
 github-config:
   - .github/**/*.yml
