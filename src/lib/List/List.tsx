@@ -1,7 +1,7 @@
 import { ListProps } from './types';
 
-function List<T>(props: ListProps<T>) {
-  return <>{props.items.map(props.customRender)}</>;
+function List<T>({ items, customRender }: ListProps<T>) {
+  return <>{items.map(customRender)}</>;
 }
 
 export default List;

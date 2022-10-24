@@ -87,6 +87,18 @@ function App() {
     []
   );
 
+  const listItems = [
+    { name: 'Alberto', age: 35 },
+    { name: 'Ana', age: 37 },
+  ];
+
+  const listCustomRender = (item: typeof listItems[number]) => (
+    <p key={item.name}>
+      <strong>{item.name}: </strong>
+      <small>{item.age}</small>
+    </p>
+  );
+
   return (
     <Wrapper>
       <div>
@@ -165,26 +177,7 @@ function App() {
       <div>
         <h2>List</h2>
         <div>
-          <List
-            items={[
-              {
-                name: 'Alberto',
-                age: 35,
-              },
-              {
-                name: 'Ana',
-                age: 37,
-              },
-            ]}
-            customRender={(item) => {
-              return (
-                <p>
-                  <strong>{item.name}: </strong>
-                  <small>{item.age}</small>
-                </p>
-              );
-            }}
-          />
+          <List items={listItems} customRender={listCustomRender} />
         </div>
       </div>
 
