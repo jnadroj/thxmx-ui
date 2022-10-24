@@ -9,11 +9,9 @@ test:
   - src/**/*.spec.jsx
   - src/**/*.test.jsx
 
-# add documentation to *.md files 
-documentation: 
-  - *.md
+# add documentation to *.md files
+documentation:
+  - '**.md'
 
-github-config: 
+github-config:
   - .github/**/*.yml
-
-
