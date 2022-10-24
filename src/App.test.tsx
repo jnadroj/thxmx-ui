@@ -31,4 +31,8 @@ describe('App', () => {
   it('render rate', () => {
     expect(screen.getByText('Rate')).toBeInTheDocument();
   });
+
+  it('render list', () => {
+    expect(screen.getByText('List')).toBeInTheDocument();
+  });
 });

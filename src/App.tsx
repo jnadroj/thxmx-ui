@@ -1,6 +1,15 @@
 import { useMemo, useState } from 'react';
 import styled from '@emotion/styled';
-import { Button, Input, ModalContent, Modal, Tag, Loader, Rate } from './lib';
+import {
+  Button,
+  Input,
+  ModalContent,
+  Modal,
+  Tag,
+  Loader,
+  Rate,
+  List,
+} from './lib';
 import { colors } from './constants';
 
 const textLorem =
@@ -152,6 +161,33 @@ function App() {
           />
         </div>
       </div>
+
+      <div>
+        <h2>List</h2>
+        <div>
+          <List
+            items={[
+              {
+                name: 'Alberto',
+                age: 35,
+              },
+              {
+                name: 'Ana',
+                age: 37,
+              },
+            ]}
+            customRender={(item) => {
+              return (
+                <p>
+                  <strong>{item.name}: </strong>
+                  <small>{item.age}</small>
+                </p>
+              );
+            }}
+          />
+        </div>
+      </div>
+
       <Modal open={openModal} size="sm" onClose={toggleModal}>
         <ModalContent
           {...modalProps}
