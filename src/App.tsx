@@ -9,6 +9,7 @@ import {
   Loader,
   Rate,
   List,
+  Select,
 } from './lib';
 import { colors } from './constants';
 
@@ -109,6 +110,10 @@ function App() {
   return (
     <Wrapper>
       <div>
+        <Select options={[{ name: 'Jordan', id: 1 }]} accessor="name" />
+      </div>
+
+      <div>
         <h2>Loaders</h2>
         <div style={{ display: 'flex', gap: '50px' }}>
           <Loader size={32} borderSize={4} color={colors['primary-darker']} />
@@ -185,6 +190,12 @@ function App() {
         <h2>List</h2>
         <div>
           <List items={listItems} customRender={listCustomRender} />
+        </div>
+      </div>
+      <div>
+        <h2>Select</h2>
+        <div>
+          <Select options={[{ name: 'Jordan', id: 1 }]} accessor="name" />
         </div>
       </div>
 
