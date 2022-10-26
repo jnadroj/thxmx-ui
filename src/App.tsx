@@ -110,7 +110,13 @@ function App() {
   return (
     <Wrapper>
       <div>
-        <Select options={[{ name: 'Jordan', id: 1 }]} accessor="name" />
+        <Select
+          options={[
+            { name: 'Jordan', id: 1 },
+            { name: 'John', id: 2 },
+          ]}
+          accessor="name"
+        />
       </div>
 
       <div>

@@ -17,9 +17,16 @@ function Select<T>({
   full = false,
 }: SelectProps<T>) {
   const [items, setItems] = useState<T[]>(options);
+  const [selectedItem, setSelectedItem] = useState<T | null>(null);
 
-  const { isOpen, getInputProps, getMenuProps } = useCombobox({
+  const { isOpen, getInputProps, getMenuProps, getItemProps } = useCombobox({
     items: options,
+    selectedItem,
+    itemToString: (item) => (item ? (item[accessor] as string) : ''),
+    onSelectedItemChange: ({ selectedItem: newSelectedItem }) => {
+      if (!newSelectedItem) return;
+      setSelectedItem(newSelectedItem);
+    },
   });
 
   useEffect(() => {
@@ -37,7 +44,7 @@ function Select<T>({
             ? items.map(customRender)
             : items.map((item, index: number) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <Item key={index}>
+                <Item {...getItemProps({ item, index })} key={index}>
                   {typeof item === 'string' ? item : item[accessor]}
                 </Item>
               ))}
