@@ -111,6 +111,7 @@ function App() {
     <Wrapper>
       <div>
         <Select
+          hint="Select a user"
           options={[
             { name: 'Jordan', id: 1 },
             { name: 'John', id: 2 },

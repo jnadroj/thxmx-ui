@@ -12,9 +12,10 @@ import { SelectProps } from './types';
 
 function Select<T>({
   options,
-  customRender,
   accessor,
   full = false,
+  customRender,
+  hint = '',
 }: SelectProps<T>) {
   const [items, setItems] = useState<T[]>(options);
   const [selectedItem, setSelectedItem] = useState<T | null>(null);
@@ -36,7 +37,7 @@ function Select<T>({
   return (
     <WrapperSelect full={full}>
       <WrapperSelectInput>
-        <Input {...getInputProps()} />
+        <Input {...getInputProps()} placeholder={hint} />
       </WrapperSelectInput>
       {isOpen && (
         <WrapperList {...getMenuProps()}>
