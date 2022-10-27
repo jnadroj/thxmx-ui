@@ -25,6 +25,12 @@ A modern library for reactJS components
 
 </div>
 
+## THXMX-UI Wiki
+
+### **You can visit the wiki of this project at [notion](https://painted-vulcanodon-ee2.notion.site/THXMX-UI-Wiki-5dca2bd661e7451e8b37badc4c264d5b)**
+
+---
+
 ## 📚 Homepage
 
 - Visit [here](https://thxmx-ui.netlify.app/)
