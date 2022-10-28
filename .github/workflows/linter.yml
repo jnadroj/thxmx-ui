@@ -12,8 +12,8 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: "Install eslint"
-      run : npm install -g eslint
+    - name: "Install dependencies"
+      run : npm install 
     - name: "Run linter with npm "
       run : npm run lint
      
