@@ -1,0 +1,14 @@
+name: 'Linter'
+on:
+  
+  pull_request:
+
+jobs:
+  lint:
+    name: "Run linter"
+    runs-on: ubuntu-latest
+    steps:
+    - name: "npm lint"
+      run : npm run lint
+     
+  
