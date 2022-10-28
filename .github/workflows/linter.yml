@@ -12,7 +12,9 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-    - name: "npm lint"
+    - name: "Install eslint"
+      run : npm install -g eslint
+    - name: "Run linter with npm "
       run : npm run lint
      
   
