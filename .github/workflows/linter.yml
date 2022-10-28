@@ -1,0 +1,33 @@
+name: 'Linter'
+on:
+  
+  pull_request:
+
+jobs:
+  lint:
+    name: "Run linter"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: "Install dependencies"
+      run : npm install 
+    - name: "Run linter with npm "
+      run : npm run lint
+  test:
+    name: "Run tests"
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - name: "Install dependencies"
+      run : npm install 
+    - name: "Run tests "
+      run : npm run test
+
+     
+  
