@@ -102,5 +102,8 @@
     "vite": "2.8.6",
     "vite-plugin-dts": "1.0.3",
     "vitest": "^0.24.3"
+  },
+  "dependencies": {
+    "downshift": "^7.0.0"
   }
 }
