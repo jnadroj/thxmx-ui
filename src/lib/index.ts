@@ -5,3 +5,4 @@ export * from './Button';
 export * from './Loader';
 export * from './Rate';
 export * from './List';
+export * from './Select';
